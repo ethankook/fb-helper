@@ -31,4 +31,13 @@ public class Player {
 
     @Column(name = "positions", nullable= false)
     private String positions;
+
+    @Column(name = "status", nullable = false)
+    private String status;
+
+    @Column(name = "createdAt", nullable = false, insertable = false, updatable = false)
+    private Instant createdAt;
+
+    @Column(name = "updatedAt", nullable = false, updatable = true)
+    private Instant updatedAt;
 }
