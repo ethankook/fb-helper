@@ -15,4 +15,18 @@ import com.example.fbhelper.enums.*;
 @Builder
 
 public class Ownership {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @JoinColumn(name = "player_id", nullable = false)
+    private Player player;
+
+
+
+
+
+
+
 }

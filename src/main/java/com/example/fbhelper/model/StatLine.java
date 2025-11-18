@@ -2,10 +2,8 @@ package com.example.fbhelper.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.math.BigDecimal;
 import java.time.*;
-import com.example.fbhelper.enums.*;
 
 
 @Entity
