@@ -10,7 +10,8 @@ import java.time.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@Builder
+
 public class Player {
 
     @Id
@@ -29,15 +30,18 @@ public class Player {
     @Column(name = "last_name")
     private String lastName;
 
+    @Column(name = "nba_team")
+    private String nbaTeam;
+
     @Column(name = "positions", nullable= false)
     private String positions;
 
     @Column(name = "status", nullable = false)
     private String status;
 
-    @Column(name = "createdAt", nullable = false, insertable = false, updatable = false)
+    @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
     private Instant createdAt;
 
-    @Column(name = "updatedAt", nullable = false, updatable = true)
+    @Column(name = "updated_at", nullable = false, updatable = true)
     private Instant updatedAt;
 }

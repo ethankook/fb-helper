@@ -10,8 +10,8 @@ CREATE TABLE oauth_token
     raw_response  JSONB,
     CONSTRAINT uq_oauth_provider UNIQUE (provider),
 
-    createdAt     TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updatedAt     TIMESTAMPTZ NOT NULL DEFAULT now()
+    created_at     TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at     TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
 CREATE TABLE league
@@ -23,8 +23,8 @@ CREATE TABLE league
     season_year      INTEGER     NOT NULL,
     num_teams        INTEGER     NOT NULL,
 
-    createdAt        TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updatedAt        TIMESTAMPTZ NOT NULL DEFAULT now()
+    created_at        TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at        TIMESTAMPTZ NOT NULL DEFAULT now()
 
 );
 
@@ -40,8 +40,8 @@ CREATE TABLE team
     punt_categories TEXT,
     win_categories  TEXT,
 
-    createdAt       TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updatedAt       TIMESTAMPTZ NOT NULL DEFAULT now(),
+    created_at       TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at       TIMESTAMPTZ NOT NULL DEFAULT now(),
 
     CONSTRAINT uq_team UNIQUE (league_id, yahoo_team_key)
 );
@@ -59,8 +59,8 @@ CREATE TABLE player
     positions       TEXT,
     status          TEXT,
 
-    createdAt       TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updatedAt       TIMESTAMPTZ NOT NULL DEFAULT now()
+    created_at       TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at       TIMESTAMPTZ NOT NULL DEFAULT now()
 
 );
 
@@ -87,7 +87,7 @@ CREATE TABLE stat_line
 
     raw_json  JSONB,
 
-    createdAt TIMESTAMPTZ NOT NULL DEFAULT now(),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
 
     CONSTRAINT uq_stat_line UNIQUE (player_id, game_date)
 
@@ -104,8 +104,8 @@ CREATE TABLE ownership
 
     raw_json        JSONB,
 
-    createdAt       TIMESTAMPTZ   NOT NULL DEFAULT now(),
-    updatedAt       TIMESTAMPTZ   NOT NULL DEFAULT now(),
+    created_at       TIMESTAMPTZ   NOT NULL DEFAULT now(),
+    updated_at       TIMESTAMPTZ   NOT NULL DEFAULT now(),
 
     CONSTRAINT uq_ownership UNIQUE (player_id, snapshot_date)
 );
@@ -116,6 +116,6 @@ CREATE TABLE sync_state
     last_synced_stats     DATE,
     last_synced_ownership DATE,
 
-    createdAt             TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updatedAt             TIMESTAMPTZ NOT NULL DEFAULT now()
+    created_at             TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at             TIMESTAMPTZ NOT NULL DEFAULT now()
 );

@@ -9,7 +9,7 @@ import java.time.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@Builder
 
 public class OauthToken {
     @Id
@@ -37,9 +37,9 @@ public class OauthToken {
     @Column(name = "raw_response", columnDefinition = "jsonb")
     private String rawResponse;
 
-    @Column(name = "createdAt", nullable = false, insertable = false, updatable = false)
+    @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
     private Instant createdAt;
 
-    @Column(name = "updatedAt", nullable = false, insertable = false, updatable = true)
+    @Column(name = "updated_at", nullable = false, insertable = false, updatable = true)
     private Instant updatedAt;
 }

@@ -10,7 +10,7 @@ import java.time.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@Builder
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,10 +35,10 @@ public class Team {
     @Column(name = "win_categories")
     private String winCategories;
 
-    @Column(name = "createdAt", nullable = false, insertable = false, updatable = false)
+    @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
     private Instant createdAt;
 
-    @Column(name = "updatedAt", nullable = false, insertable = false, updatable = true)
+    @Column(name = "updated_at", nullable = false, insertable = false, updatable = true)
     private Instant updatedAt;
 
 }

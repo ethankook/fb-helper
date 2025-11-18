@@ -12,6 +12,7 @@ import java.time.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 
 public class League {
     @Id
@@ -29,15 +30,15 @@ public class League {
     private String name;
 
     @Column(name = "season_year", nullable = false)
-    private Integer season_year;
+    private Integer seasonYear;
 
     @Column(name = "num_teams", nullable = false)
-    private Integer num_teams;
+    private Integer numTeams;
 
-    @Column(name = "createdAt", nullable = false, insertable = false, updatable = false)
+    @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
     private Instant createdAt;
 
-    @Column(name = "updatedAt", nullable = false, insertable = false, updatable = true)
+    @Column(name = "updated_At", nullable = false, insertable = false, updatable = true)
     private Instant updatedAt;
 
 
