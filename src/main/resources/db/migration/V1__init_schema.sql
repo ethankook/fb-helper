@@ -56,12 +56,18 @@ CREATE TABLE player
     last_name       TEXT,
 
     nba_team        VARCHAR(3),
-    positions       TEXT,
     status          TEXT,
 
     created_at       TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at       TIMESTAMPTZ NOT NULL DEFAULT now()
 
+);
+
+CREATE TABLE player_position
+(
+    player_id BIGINT      NOT NULL REFERENCES player (id) ON DELETE CASCADE,
+    position  VARCHAR(10) NOT NULL,
+    PRIMARY KEY (player_id, position)
 );
 
 CREATE TABLE stat_line

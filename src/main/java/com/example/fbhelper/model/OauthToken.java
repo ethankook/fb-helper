@@ -2,6 +2,7 @@ package com.example.fbhelper.model;
 import lombok.*;
 import jakarta.persistence.*;
 import java.time.*;
+import com.example.fbhelper.enums.*;
 
 @Entity
 @Table(name = "oauth_token")
@@ -16,8 +17,9 @@ public class OauthToken {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "provider", nullable = false)
-    private String provider;
+    private AuthProvider provider;
 
     @Column(name = "access_token", nullable = false)
     private String accessToken;

@@ -3,6 +3,8 @@ package com.example.fbhelper.model;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.*;
+import com.example.fbhelper.enums.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "player")
@@ -33,8 +35,14 @@ public class Player {
     @Column(name = "nba_team")
     private String nbaTeam;
 
-    @Column(name = "positions", nullable= false)
-    private String positions;
+    @ElementCollection(targetClass = Position.class)
+    @CollectionTable(
+            name = "player_position",
+            joinColumns = @JoinColumn(name = "player_id")
+    )
+    @Enumerated(EnumType.STRING)
+    @Column(name = "position", nullable = false)
+    private Set<Position> positions;
 
     @Column(name = "status", nullable = false)
     private String status;
